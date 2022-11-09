@@ -2,10 +2,19 @@ import { createRouter, createWebHashHistory } from "vue-router";
 
 const routes = [
   {
-    path: "/",
+    path: "/", // PC端首页
     name: "IndexView",
+    redirect: "/home",
     component: () => import("@/views/IndexView.vue"),
     children: [
+      {
+        path: "/home",
+        name: "HomePage",
+        meta: {
+          title: "首页",
+        },
+        component: () => import("@/views/home_page/HomePage.vue"),
+      },
       {
         path: "/tool/home",
         name: "ToolHome",
@@ -15,6 +24,11 @@ const routes = [
         component: () => import("@/views/tool_library/ToolHome.vue"),
       },
     ],
+  },
+  {
+    path: "/move", // 移动端首页
+    name: "MoveIndexView",
+    component: () => import("@/views/move/MoveIndexView.vue"),
   },
 ];
 

@@ -274,7 +274,7 @@ export default {
           color: #000;
         }
       }
-      li:last-child{
+      li:last-child {
         .ic-suppress {
           font-size: 18px;
         }
