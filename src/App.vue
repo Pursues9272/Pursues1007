@@ -13,7 +13,7 @@ export default {
       this.$router.push("/move");
     } else {
       // PC端
-      this.$router.push("/");
+      // this.$router.push("/");
     }
   },
   methods: {

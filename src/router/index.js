@@ -23,6 +23,15 @@ const routes = [
         },
         component: () => import("@/views/tool_library/ToolHome.vue"),
       },
+      {
+        path: "/tool/time-stamp",
+        name: "ToolTimeStamp",
+        meta: {
+          title: "时间戳转换工具",
+          nav: "tool",
+        },
+        component: () => import("@/views/tool_library/ToolTimeStamp.vue"),
+      },
     ],
   },
   {
@@ -36,5 +45,4 @@ const router = createRouter({
   history: createWebHashHistory(),
   routes,
 });
-
 export default router;

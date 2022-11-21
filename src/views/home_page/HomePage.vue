@@ -23,16 +23,31 @@
       </li>
     </ul>
     <!-- <div v-for="item in 120">{{ item }}</div> -->
+    <div class="poetry-box">
+      <div class="box-title">诗</div>
+      <div class="box-content"></div>
+    </div>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
+import poetryData from "../../assets/json/poetry.json";
 export default {
   data() {
-    return {};
+    return {
+      poetryTitle: "",
+    };
   },
   mounted() {},
+  created() {
+    this.initPoetry();
+  },
+  methods: {
+    initPoetry() {
+      console.log("poetryData=>", poetryData);
+    },
+  },
 };
 </script>
 
@@ -143,6 +158,29 @@ export default {
         letter-spacing: 5px;
         display: inline-block;
       }
+    }
+  }
+  .poetry-box {
+    width: 100%;
+    min-height: 100px;
+    box-sizing: border-box;
+    overflow: hidden;
+    background-color: aquamarine;
+    .box-title {
+      width: 100%;
+      height: 50px;
+      background-color: #fff;
+      color: #000;
+      font-size: 20px;
+      font-weight: 500;
+      box-sizing: border-box;
+      padding: 10px;
+      overflow: hidden;
+    }
+    .box-content {
+      width: 100%;
+      height: 100%;
+      background-color: #098;
     }
   }
 }

@@ -3,6 +3,9 @@
     <header>
       <SystemHeader></SystemHeader>
     </header>
+    <div class="nav-top" v-if="isNav">
+      <SystemNavTop></SystemNavTop>
+    </div>
     <main>
       <el-config-provider :locale="local">
         <router-view v-slot="{ Component }">
@@ -22,18 +25,42 @@
 // @ is an alias to /src
 import SystemHeader from "@/components/SystemHeader.vue";
 import SystemFooter from "@/components/SystemFooter.vue";
+import SystemNavTop from "@/components/SystemNavTop.vue";
 import zhCn from "element-plus/lib/locale/lang/zh-cn";
 export default {
   components: {
     SystemHeader,
     SystemFooter,
+    SystemNavTop,
   },
   data() {
     return {
       local: zhCn,
+      isNav: false,
     };
   },
-  mounted() {},
+  mounted() {
+    this.initisNav();
+  },
+  watch: {
+    $route() {
+      this.initisNav();
+    },
+  },
+  methods: {
+    initisNav() {
+      // console.log("nav=>",this.$route.meta.nav)
+      if (this.$route.meta.nav !== undefined) {
+        if (this.$route.meta.nav === "tool") {
+          this.isNav = true;
+        } else {
+          this.isNav = false;
+        }
+      } else {
+        this.isNav = false;
+      }
+    },
+  },
 };
 </script>
 
@@ -51,6 +78,10 @@ export default {
     width: 100%;
     height: 50px;
     box-sizing: border-box;
+  }
+  .nav-top {
+    width: 100%;
+    height: 50px;
   }
   main {
     width: 80%;
