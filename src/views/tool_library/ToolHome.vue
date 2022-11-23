@@ -25,9 +25,9 @@
         >
           <div class="list-title">
             「{{ It.title }}」
-            <i class="iconfont ic-suppress icon-shijian"></i>
+            <i class="iconfont ic-suppress" :class="It.icon"></i>
           </div>
-          <div class="list-content">时间/时间戳转换</div>
+          <div class="list-content">{{ It.subcontent }}</div>
         </div>
       </div>
     </div>
@@ -45,50 +45,63 @@ export default {
           icon: "icon-shijian",
           title: "时间转换",
           index: "/tool/time-stamp",
+          subcontent: "时间/时间戳转换",
         },
         {
-          icon: "icon-shijian",
-          title: "时间转换2",
+          icon: "icon-erweima",
+          title: "生成二维码",
+          index: "/tool/generate-QRcode",
+          subcontent: "在线生成二维码",
         },
         {
           icon: "icon-shijian",
           title: "时间转换3",
+          subcontent: "时间/时间戳转换",
         },
         {
           icon: "icon-shijian",
           title: "时间转换4",
+          subcontent: "时间/时间戳转换",
         },
         {
           icon: "icon-shijian",
           title: "时间转换5",
+          subcontent: "时间/时间戳转换",
         },
         {
           icon: "icon-shijian",
           title: "时间转换6",
+          subcontent: "时间/时间戳转换",
         },
         {
           icon: "icon-shijian",
           title: "时间转换7",
+          subcontent: "时间/时间戳转换",
         },
         {
           icon: "icon-shijian",
           title: "时间转换8",
+          subcontent: "时间/时间戳转换",
         },
         {
           icon: "icon-shijian",
           title: "时间转换9",
+          subcontent: "时间/时间戳转换",
         },
         {
           icon: "icon-shijian",
           title: "时间转换10",
+          subcontent: "时间/时间戳转换",
         },
         {
           icon: "icon-shijian",
           title: "时间转换11",
+          subcontent: "时间/时间戳转换",
         },
         {
           icon: "icon-shijian",
           title: "时间转换12",
+          subcontent: "时间/时间戳转换",
         },
       ],
       colToolNum: 0,
@@ -196,6 +209,7 @@ export default {
             margin: 0;
             padding: 0;
             color: #000;
+            font-weight: 500;
           }
         }
         .list-content {

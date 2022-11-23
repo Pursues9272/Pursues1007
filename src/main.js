@@ -7,8 +7,13 @@ import "element-plus/theme-chalk/index.css";
 import * as ElIconModules from "@element-plus/icons-vue";
 import axios from "axios";
 import VueAxios from "vue-axios";
+import * as func from "@/components/global_transfer/func";
+import { throttle, focus } from "@/components/global_transfer/instructions";
 
 const app = createApp(App);
+app.directive("throttle", throttle);
+app.directive("focus", focus);
+app.config.globalProperties.$func = func;
 app.use(store);
 app.use(router);
 app.use(VueAxios, axios);

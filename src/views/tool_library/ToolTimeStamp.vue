@@ -3,7 +3,28 @@
     <!-- 时间戳转换工具 -->
     <div class="stamp-title">现在是北京时间: {{ time }}</div>
     <div class="stamp-box">
-      <div class="box-list">时间戳: {{ dateFormat }}</div>
+      <div class="box-list">
+        时间戳:
+        {{ dateFormat }}
+        <i @click="copyBtn" class="iconfont ic-copy icon-fuzhi"></i>
+        <el-button
+          type="danger"
+          style="width: 30px; margin: 0 10px 0 10px"
+          size="small"
+          @click="switchBtn(), clickOt($event)"
+        >
+          <i
+            v-if="istime"
+            title="暂停"
+            class="iconfont ic-suppress icon-zanting"
+          ></i>
+          <i
+            v-if="!istime"
+            title="启动"
+            class="iconfont ic-suppress icon-zanting1"
+          ></i>
+        </el-button>
+      </div>
       <div class="box-list">
         时间戳转时间:&nbsp;&nbsp;
         <el-input
@@ -28,7 +49,7 @@
           type="primary"
           style="width: 50px; margin: 0 10px 0 10px"
           size="small"
-          @click="transferDate"
+          @click="transferDate(), clickOt($event)"
         >
           <i class="iconfont ic-suppress icon-zhuanhuan"></i>
         </el-button>
@@ -37,7 +58,7 @@
           type="primary"
           style="width: 50px; margin: 0 10px 0 10px"
           size="small"
-          @click="resetTime"
+          @click="resetTime(), clickOt($event)"
         >
           <i class="iconfont ic-suppress icon-shuaxin-zhongzhi-07"></i>
         </el-button>
@@ -60,7 +81,7 @@
           type="primary"
           style="width: 50px; margin: 0 10px 0 10px"
           size="small"
-          @click="transferDateNoun"
+          @click="transferDateNoun(), clickOt($event)"
         >
           <i class="iconfont ic-suppress icon-zhuanhuan"></i>
         </el-button>
@@ -81,11 +102,34 @@
           type="primary"
           style="width: 50px; margin: 0 10px 0 10px"
           size="small"
-          @click="resetTimeNoun"
+          @click="resetTimeNoun(), clickOt($event)"
         >
           <i class="iconfont ic-suppress icon-shuaxin-zhongzhi-07"></i>
         </el-button>
       </div>
+      <div class="box-introduce">
+        <div class="introduce-title">『&nbsp; 工具简介 &nbsp;』</div>
+        <div class="introduce-usage">
+          秒: 表示11位时间戳 &nbsp;|&nbsp; 毫秒: 表示13位时间戳
+          <br />
+          <p>
+            <i class="iconfont icon-zhuanhuan"></i>
+            转换 &nbsp;|&nbsp;
+            <i class="iconfont icon-shuaxin-zhongzhi-07"></i>
+            重置 &nbsp;|&nbsp;
+            <i class="iconfont ifor-ic icon-shijian"></i>
+            日期时间选择器
+          </p>
+        </div>
+        <div class="introduce-text">
+          Unix
+          时间戳是从1970年1月1日（UTC/GMT的午夜）开始所经过的秒数，不考虑闰秒。
+        </div>
+        <div class="introduce-text">
+          时间戳是指格林威治时间1970年01月01日00时00分00秒(北京时间1970年01月01日08时00分00秒)起至现在的总秒数。
+        </div>
+      </div>
+      <!-- <div v-for="item in 120">{{item}}</div> -->
     </div>
   </div>
 </template>
@@ -104,6 +148,7 @@ export default {
       inputDateNoun: "", // 日期
       timeDigit: "1", // 位数
       timeDigitNoun: "1", // 位数
+      istime: true,
     };
   },
   created() {
@@ -116,9 +161,11 @@ export default {
     this.timingTap();
   },
   methods: {
+    clickOt(event) {
+      this.$func.unFons(event);
+    },
     transferDate() {
       // 时间戳转日期
-      console.log("时间戳转日期", this.timeDigit);
       this.inputDate = "";
       this.inputDate = this.dateFormatConvert(this.inputStamp);
     },
@@ -130,7 +177,6 @@ export default {
     },
     transferDateNoun() {
       // 日期转时间戳
-      console.log("日期转时间戳", this.inputStampNoun);
       this.inputDateNoun = this.timeStampConvertNoun(this.inputStampNoun);
     },
     resetTimeNoun() {
@@ -144,10 +190,27 @@ export default {
         clearInterval(this.controlTime);
       }
     },
+    switchBtn() {
+      this.istime = !this.istime;
+      if (!this.istime) {
+        clearInterval(this.controlTime);
+      } else {
+        this.timingTap();
+      }
+    },
     timingTap() {
       this.controlTime = setInterval(() => {
         this.dynamicTime();
       }, 1000);
+    },
+    copyBtn() {
+      // 复制文本
+      const el = document.createElement("input");
+      el.setAttribute("value", this.dateFormat);
+      document.body.appendChild(el);
+      el.select();
+      document.execCommand("copy");
+      document.body.removeChild(el);
     },
     dynamicTime() {
       const date = new Date(); // 时间
@@ -255,6 +318,10 @@ export default {
   // background-color: rgb(126, 35, 35);
   //   background-color: aquamarine;
   padding: 20px 10px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scrollbar-width: none; // firefox
+  -ms-overflow-style: none; // IE10+
   .stamp-title {
     width: 100%;
     height: 25px;
@@ -279,7 +346,50 @@ export default {
       box-sizing: border-box;
       padding: 0 10px;
       margin: 25px 0;
+      .ic-copy {
+        color: #000;
+        font-size: 20px;
+        margin: 2px 0 0 10px;
+        cursor: pointer;
+      }
+    }
+    .box-introduce {
+      width: 100%;
+      margin-top: 50px;
+      box-sizing: border-box;
+      display: flex;
+      flex-flow: column nowrap;
+      .introduce-title {
+        font-size: 18px;
+        color: #000;
+        width: 100%;
+        height: 30px;
+        // background-color: rgb(74, 11, 11);
+      }
+      .introduce-usage {
+        width: 100%;
+        font-size: 18px;
+        box-sizing: border-box;
+        margin-top: 25px;
+        .ifor-ic {
+          color: #000;
+          font-size: 18px;
+          font-weight: 900;
+        }
+      }
+      .introduce-text {
+        width: 100%;
+        height: 25px;
+        font-size: 18px;
+        display: flex;
+        box-sizing: border-box;
+        margin-top: 25px;
+      }
     }
   }
+}
+.toolTime-stamp::-webkit-scrollbar {
+  // 伪类隐藏滚动条 ---Chrome/Safari
+  display: none;
 }
 </style>

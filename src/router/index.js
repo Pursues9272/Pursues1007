@@ -32,6 +32,16 @@ const routes = [
         },
         component: () => import("@/views/tool_library/ToolTimeStamp.vue"),
       },
+      {
+        path: "/tool/generate-QRcode",
+        name: "ToolGenerateQRcode",
+        meta: {
+          // title: "二维码生成工具",
+          title: "防抖/节流dome",
+          nav: "tool",
+        },
+        component: () => import("@/views/tool_library/ToolGenerateQRcode.vue"),
+      },
     ],
   },
   {
