@@ -1,5 +1,6 @@
 <template>
-  <div class="index-view">6<el-button type="primary">Primary</el-button></div>
+  <div class="index-view">6<el-button type="primary">Primary</el-button>
+    <el-icon><FullScreen /></el-icon></div>
 </template>
 
 <script>
