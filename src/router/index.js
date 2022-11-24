@@ -36,11 +36,28 @@ const routes = [
         path: "/tool/generate-QRcode",
         name: "ToolGenerateQRcode",
         meta: {
-          // title: "二维码生成工具",
-          title: "防抖/节流dome",
+          title: "二维码生成工具",
+          // title: "防抖/节流dome",
           nav: "tool",
         },
         component: () => import("@/views/tool_library/ToolGenerateQRcode.vue"),
+      },
+      {
+        path: "/tool/demo",
+        name: "ToolDemo",
+        meta: {
+          title: "防抖/节流dome",
+          nav: "tool",
+        },
+        component: () => import("@/views/tool_library/ToolDemo.vue"),
+      },
+      {
+        path: "/animation/home",
+        name: "AnimationHome",
+        meta: {
+          title: "动画库",
+        },
+        component: () => import("@/views/animation_library/AnimationHome.vue"),
       },
     ],
   },

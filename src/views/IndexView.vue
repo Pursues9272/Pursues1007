@@ -1,7 +1,7 @@
 <template>
   <div class="index-view">
     <header>
-      <!-- <SystemHeader></SystemHeader> -->
+      <SystemHeader></SystemHeader>
     </header>
     <div class="nav-top" v-if="isNav">
       <SystemNavTop></SystemNavTop>
@@ -16,7 +16,7 @@
       </el-config-provider>
     </main>
     <footer>
-      <!-- <SystemFooter></SystemFooter> -->
+      <SystemFooter></SystemFooter>
     </footer>
   </div>
 </template>

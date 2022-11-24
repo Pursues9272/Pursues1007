@@ -119,15 +119,20 @@ export default {
           index: "/",
           icon: "icon-shouye",
         },
-        {
-          title: "模板出售",
-          index: "/",
-          icon: "icon-mobankuangjia",
-        },
+        // {
+        //   title: "模板出售",
+        //   index: "/",
+        //   icon: "icon-mobankuangjia",
+        // },
         {
           title: "技术博客",
           index: "/",
           icon: "icon-jishufuwu",
+        },
+        {
+          title: "动画库",
+          index: "/animation/home",
+          icon: "icon-donghua",
         },
         {
           title: "工具库",
@@ -293,7 +298,8 @@ export default {
     }
     .box-sigin {
       height: 80%;
-      background-image: url(../../public/sigin.jpg);
+      // background-image: url(../../public/sigin.jpg);
+      background-color: #fff;
       background-repeat: no-repeat;
       background-size: 100% 100%;
       position: absolute;

@@ -1,5 +1,5 @@
 <template>
-  <div class="toolGenerate-qrcode">
+  <div class="tool-demo">
     <!-- 生成二维码 -->
     6翻了
     <!-- <div v-for="item in 120">{{item}}</div> -->
@@ -7,7 +7,6 @@
       >Primary</el-button
     >
     <el-button @click="butThrottles">fg</el-button>
-    🦓🦒🐅🐆🐘🦏🐃🦌🐐🐫 🐋🐳🐬🐟🐠🐡🐙🦑🦐🦀
     <el-input v-model="input" style="width: 300px" placeholder="Please input" />
     <div></div>
     <input v-focus />
@@ -81,7 +80,7 @@ export default {
 
 <style lang="less" scoped>
 // 严格模式下必须存在内容
-.toolGenerate-qrcode {
+.tool-demo {
   width: 100%;
   height: 100%;
   padding: 20px 10px;
@@ -90,7 +89,7 @@ export default {
   scrollbar-width: none; // firefox
   -ms-overflow-style: none; // IE10+
 }
-.toolGenerate-qrcode::-webkit-scrollbar {
+.tool-demo::-webkit-scrollbar {
   // 伪类隐藏滚动条 ---Chrome/Safari
   display: none;
 }

@@ -27,7 +27,9 @@
             「{{ It.title }}」
             <i class="iconfont ic-suppress" :class="It.icon"></i>
           </div>
-          <div class="list-content">{{ It.subcontent }}</div>
+          <div class="list-content" :title="It.subcontent">
+            {{ It.subcontent }}
+          </div>
         </div>
       </div>
     </div>
@@ -54,54 +56,35 @@ export default {
           subcontent: "在线生成二维码",
         },
         {
-          icon: "icon-shijian",
-          title: "时间转换3",
-          subcontent: "时间/时间戳转换",
+          icon: "icon-wj-zhfa",
+          title: "json/xml互转",
+          subcontent: "json文件转xml文件",
         },
         {
-          icon: "icon-shijian",
-          title: "时间转换4",
-          subcontent: "时间/时间戳转换",
+          icon: "icon-rili",
+          title: "阳历/农历互转",
+          subcontent: "阳历时间和农历时间相互转换",
         },
         {
-          icon: "icon-shijian",
-          title: "时间转换5",
-          subcontent: "时间/时间戳转换",
+          icon: "icon-exchangerate",
+          title: "汇率转换",
+          subcontent: "对货币的汇率进行转换",
         },
         {
-          icon: "icon-shijian",
-          title: "时间转换6",
-          subcontent: "时间/时间戳转换",
+          icon: "icon-tupian",
+          title: "图片格式转换",
+          subcontent: "转换图片格式",
         },
         {
-          icon: "icon-shijian",
-          title: "时间转换7",
-          subcontent: "时间/时间戳转换",
+          icon: "icon-icon_tiaoxingma",
+          title: "生成条形码",
+          subcontent: "生成条形码",
         },
         {
-          icon: "icon-shijian",
-          title: "时间转换8",
-          subcontent: "时间/时间戳转换",
-        },
-        {
-          icon: "icon-shijian",
-          title: "时间转换9",
-          subcontent: "时间/时间戳转换",
-        },
-        {
-          icon: "icon-shijian",
-          title: "时间转换10",
-          subcontent: "时间/时间戳转换",
-        },
-        {
-          icon: "icon-shijian",
-          title: "时间转换11",
-          subcontent: "时间/时间戳转换",
-        },
-        {
-          icon: "icon-shijian",
-          title: "时间转换12",
-          subcontent: "时间/时间戳转换",
+          icon: "icon-explain-full",
+          title: "demo",
+          subcontent: "实验demo",
+          index: "/tool/demo",
         },
       ],
       colToolNum: 0,
@@ -213,12 +196,18 @@ export default {
           }
         }
         .list-content {
-          display: flex;
-          align-items: center;
+          // display: flex;
+          // align-items: center;
+          // background-color: rgb(0, 79, 128);
+          margin-top: 5px;
           font-size: 14px;
           padding: 0 5px;
           box-sizing: border-box;
           padding-left: 10px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          -o-text-overflow: ellipsis;
+          white-space: nowrap;
         }
       }
     }
