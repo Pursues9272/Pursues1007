@@ -86,6 +86,18 @@ export default {
           subcontent: "实验demo",
           index: "/tool/demo",
         },
+        {
+          icon: "icon-gengduotupian",
+          title: "图片编辑",
+          subcontent: "相当于Ps",
+          index: "/tool/demo",
+        },
+        {
+          icon: "icon-shipin",
+          title: "视频编辑",
+          subcontent: "相当于Pr",
+          index: "/tool/demo",
+        },
       ],
       colToolNum: 0,
       contToolTtem: [],
