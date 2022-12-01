@@ -94,9 +94,9 @@ export default {
         },
         {
           icon: "icon-shipin",
-          title: "视频编辑",
-          subcontent: "相当于Pr",
-          index: "/tool/demo",
+          title: "视频处理工具",
+          subcontent: "绿幕变换",
+          index: "/tool/video",
         },
       ],
       colToolNum: 0,

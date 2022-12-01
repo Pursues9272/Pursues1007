@@ -13,7 +13,7 @@
     <div class="home-box">
       <div class="box-column"></div>
     </div>
-    <div v-for="item in 120">{{ item }}</div>
+    <!-- <div v-for="item in 120">{{ item }}</div> -->
   </div>
 </template>
 

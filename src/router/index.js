@@ -43,6 +43,15 @@ const routes = [
         component: () => import("@/views/tool_library/ToolGenerateQRcode.vue"),
       },
       {
+        path: "/tool/video",
+        name: "ToolVideo",
+        meta: {
+          title: "视频处理工具",
+          nav: "tool",
+        },
+        component: () => import("@/views/tool_library/ToolVideo.vue"),
+      },
+      {
         path: "/tool/demo",
         name: "ToolDemo",
         meta: {
