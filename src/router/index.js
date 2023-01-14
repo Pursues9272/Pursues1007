@@ -5,7 +5,7 @@ const routes = [
     path: "/",
     name: "IndexView",
     component: () => import("@/views/IndexView.vue"),
-  }
+  },
 ];
 
 const router = createRouter({
